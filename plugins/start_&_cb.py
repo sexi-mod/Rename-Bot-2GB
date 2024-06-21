@@ -20,7 +20,7 @@ async def start(client, message):
         [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
         [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
         [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-        [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
+        [InlineKeyboardButton('Promoter 🔥', callback_data='❌JOIN ALL TELGRAM FIRST')],
     ])
     
     if Config.START_PIC:
@@ -47,7 +47,7 @@ async def cb_handler(client, query: CallbackQuery):
                 [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
                 [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
                 [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-                [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
+                [InlineKeyboardButton('Promoter 🔥', callback_data='❌JOIN ALL TELGRAM FIRST')],
             ])
         )
     elif data == "help":
