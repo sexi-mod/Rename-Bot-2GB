@@ -7,20 +7,11 @@ from config import Config, Txt
 @Client.on_message(filters.private & filters.command("start"))
 async def start(client, message):
     user = message.from_user
-    await roheshbots.add_user(client, message)                
+    await roheshbots.add_user(client, message)
+                
     button = InlineKeyboardMarkup([
         [InlineKeyboardButton('Developer 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-        [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-        [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-        [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-        [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-        [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-        [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-        [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-        [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-        [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-        [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-        [InlineKeyboardButton('Promoter 🔥', callback_data='❌JOIN ALL TELGRAM FIRST')],
+        [InlineKeyboardButton('Promoter 🔥', callback_data='join_telegram')],
     ])
     
     if Config.START_PIC:
@@ -31,25 +22,11 @@ async def start(client, message):
 @Client.on_callback_query()
 async def cb_handler(client, query: CallbackQuery):
     data = query.data 
-    if data == "start":
-        await query.message.edit_text(
-            text=Txt.START_TXT.format(query.from_user.mention),
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton('Developer 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-                [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-                [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-                [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-                [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-                [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-                [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-                [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-                [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-                [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-                [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-                [InlineKeyboardButton('Promoter 🔥', callback_data='❌JOIN ALL TELGRAM FIRST')],
-            ])
-        )
+
+    if data == "join_telegram":
+        await query.answer()
+        await query.message.reply_text('❌JOIN ALL TELEGRAM FIRST')
+
     elif data == "help":
         await query.message.edit_text(
             text=Txt.HELP_TXT,
@@ -60,6 +37,7 @@ async def cb_handler(client, query: CallbackQuery):
                  InlineKeyboardButton("◀️ Back", callback_data="start")]
             ])            
         )
+
     elif data == "about":
         await query.message.edit_text(
             text=Txt.ABOUT_TXT.format(client.mention),
@@ -70,6 +48,7 @@ async def cb_handler(client, query: CallbackQuery):
                  InlineKeyboardButton("◀️ Back", callback_data="start")]
             ])            
         )
+
     elif data == "close":
         try:
             await query.message.delete()
