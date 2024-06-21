@@ -11,7 +11,7 @@ async def start(client, message):
                 
     button = InlineKeyboardMarkup([
         [InlineKeyboardButton('Developer 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-        [InlineKeyboardButton('Promoter 🔥', callback_data='join_telegram')],
+        [InlineKeyboardButton('JOIN ALL FIRST', callback_data='join_telegram')],
     ])
     
     if Config.START_PIC:
