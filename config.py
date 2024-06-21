@@ -12,8 +12,8 @@ class Config(object):
  
     # other configs
     BOT_UPTIME  = time.time()
-    START_PIC   = os.environ.get("START_PIC", "")
-    ADMIN = int(os.environ.get("ADMIN", "5698613889"))
+    START_PIC   = os.environ.get("START_PIC", "https://telegra.ph/file/f8138ab9d9382104ab910.jpg")
+    ADMIN = int(os.environ.get("ADMIN", ""))
 
     # channels logs
     FORCE_SUB   = os.environ.get("FORCE_SUB", "Rohesh_Bots") 
@@ -26,13 +26,7 @@ class Config(object):
 
 class Txt(object):
     # part of text configuration
-    START_TXT = """Hii {}  
-
-𝚃ʜɪs 𝙸s  𝙿ᴏᴡᴇʀғᴜʟ 𝚁ᴇɴᴀᴍᴇ 𝙱ᴏᴛ
-𝚄sɪɴɢ 𝚃ʜɪs 𝙱ᴏᴛ 𝚈ᴏᴜ 𝙲ᴀɴ 𝚁ᴇɴᴀᴍᴇ & 𝙲ʜᴀɴɢᴇ 𝚃ʜᴜᴍʙɴᴀɪʟ 𝙾ғ 𝚈ᴏᴜʀ 𝙵ɪʟᴇ 
-𝚈ᴏᴜ 𝙲ᴀɴ 𝙰ʟsᴏ 𝙲ᴏɴᴠᴇʀᴛ 𝚅ɪᴅᴇᴏ 𝚃ᴏ 𝙵ɪʟᴇ & 𝙵ɪʟᴇ 𝚃ᴏ 𝚅ɪᴅᴇᴏ 
-
-Bot Is Made By : @Rohesh_Bots"""
+    START_TXT = """Join all channel and clam upi cash"""
 
     ABOUT_TXT = """
 ╭───────────────⍟
