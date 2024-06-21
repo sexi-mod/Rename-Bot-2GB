@@ -2,7 +2,7 @@ import random
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from helper.database import roheshbots
-from config import Config, Txt  
+from config import Config, Txt
 
 @Client.on_message(filters.private & filters.command("start"))
 async def start(client, message):
@@ -17,9 +17,12 @@ async def start(client, message):
                 
     button = InlineKeyboardMarkup([
         [InlineKeyboardButton('Developer 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-        [InlineKeyboardButton('Promoter 🔥', callback_data='join_telegram')],
-        [InlineKeyboardButton('Bottom Button', callback_data='bottom_button')],
+        [InlineKeyboardButton('Promoter 🔥', callback_data='join_telegram'),
+         InlineKeyboardButton('Bottom Button', callback_data='bottom_button')],
     ])
+    
+    join_button = InlineKeyboardButton('Join Telegram Group', callback_data='join_telegram')
+    button.row(join_button)  # Add the join button on the right side
     
     if Config.START_PIC:
         await message.reply_photo(Config.START_PIC, caption=Txt.START_TXT.format(user.mention), reply_markup=button)       
