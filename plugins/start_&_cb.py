@@ -9,7 +9,7 @@ async def start(client, message):
     user = message.from_user
     await roheshbots.add_user(client, message)                
     button = InlineKeyboardMarkup([
-        [InlineKeyboardButton('Developer 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0'),
+        [InlineKeyboardButton('Developer 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
         [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
         [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
         [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
@@ -36,7 +36,7 @@ async def cb_handler(client, query: CallbackQuery):
             text=Txt.START_TXT.format(query.from_user.mention),
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton('Developer 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0'),
+                [InlineKeyboardButton('Developer 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
                 [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
                 [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
                 [InlineKeyboardButton('Promoter 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
