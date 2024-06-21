@@ -7,11 +7,18 @@ from config import Config, Txt
 @Client.on_message(filters.private & filters.command("start"))
 async def start(client, message):
     user = message.from_user
+    
+    # Check if the user has already joined the required Telegram group
+    if not await has_joined_telegram_group(client, message.chat.id):
+        await message.reply_text("Please join our Telegram group to start using the bot.")
+        return
+    
     await roheshbots.add_user(client, message)
                 
     button = InlineKeyboardMarkup([
         [InlineKeyboardButton('Developer 🔥', url='https://t.me/+M3VR6_Ai50lhMzk0')],
-        [InlineKeyboardButton('JOIN ALL FIRST', callback_data='join_telegram')],
+        [InlineKeyboardButton('Promoter 🔥', callback_data='join_telegram')],
+        [InlineKeyboardButton('Bottom Button', callback_data='bottom_button')],
     ])
     
     if Config.START_PIC:
@@ -19,13 +26,30 @@ async def start(client, message):
     else:
         await message.reply_text(text=Txt.START_TXT.format(user.mention), reply_markup=button, disable_web_page_preview=True)
 
+async def has_joined_telegram_group(client, chat_id):
+    # Implement logic to check if user is in the group
+    try:
+        chat_member = await client.get_chat_member(Config.TELEGRAM_GROUP_ID, chat_id)
+        return True if chat_member.status in ["member", "administrator", "creator"] else False
+    except Exception as e:
+        print(f"Error checking group membership: {e}")
+        return False
+
 @Client.on_callback_query()
 async def cb_handler(client, query: CallbackQuery):
     data = query.data 
 
     if data == "join_telegram":
+        if await has_joined_telegram_group(client, query.message.chat.id):
+            await query.answer()
+            await query.message.reply_text('You have already joined the Telegram group.')
+        else:
+            await query.answer()
+            await query.message.reply_text('Please join our Telegram group to continue using the bot.')
+
+    elif data == "bottom_button":
         await query.answer()
-        await query.message.reply_text('❌JOIN ALL TELEGRAM FIRST')
+        await query.message.reply_text('You clicked the bottom button.')
 
     elif data == "help":
         await query.message.edit_text(
